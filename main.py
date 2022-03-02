@@ -64,6 +64,7 @@ def main(genomes, config):
       
         for i, bird in enumerate(birds):
             bird.update()
+            len_birds = len(birds)
             screen.blit(bird.img, bird.rect)
             ge[i].fitness += 0.05
             score = bird.score
@@ -113,9 +114,11 @@ def main(genomes, config):
         ScoreText = myfont.render("Score : " + str(score), False, (0, 0, 0))
         MaxScoreText = myfont.render("Max Score : " + str(max_score), False, (0, 0, 0))
         GenText = myfont.render("Gen : " + str(gen), False, (0, 0, 0))
+        LenText = myfont.render("Individuals left : " + str(len_birds), False, (0, 0, 0))
         screen.blit(ScoreText, (1330, 20))
         screen.blit(MaxScoreText, (1263, 60))
         screen.blit(GenText, (20, 20))
+        screen.blit(LenText, (20, 60))
 
         clock.tick(60)
         pygame.display.update()
